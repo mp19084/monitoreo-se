@@ -15,6 +15,8 @@ class CreateTablaApartesTable extends Migration
     {
         Schema::create('tabla_apartes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('prueba_id')->constrained()->nullable();
+            $table->string('nombre');
             $table->timestamps();
         });
     }
