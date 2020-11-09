@@ -8,7 +8,7 @@ class Componente extends Model
 {
     //
     protected $fillable = [
-        'id_sistema_embebido','tipo_dato_id','unidad_id','nombre'
+        'sistema_embebido_id','tipo_dato_id','unidad_id','nombre'
     ];
 
     public function sistemaEmbebido()
