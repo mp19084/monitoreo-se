@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Componente;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ComponenteController extends Controller
@@ -14,6 +15,10 @@ class ComponenteController extends Controller
     public function index()
     {
         //
+        $componentes=Componente::all();
+
+        return response()->json($componentes,200);
+
     }
 
     /**
@@ -35,7 +40,13 @@ class ComponenteController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+            $componente=Componente::findOrFail($id);
+
+        }catch(ModelNotFoundException $th){
+            return response()->json(['error'=>'No se encontro el dato'],404);
+        }
+        return response()->json($componente,200);
     }
 
     /**

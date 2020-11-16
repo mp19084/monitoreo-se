@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/componente','ComponenteController@index')->name('componente.index');
+Route::get('/componente/{id}', 'ComponenteController@show')->name('componente.show');
+
+
